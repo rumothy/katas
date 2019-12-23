@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+    <h1>Items</h1>
+    <ul>{{{items}}}</ul>
+    <script>
+        $(".delete-item").on("click", function(event){
+            event.preventDefault();
+            let itemId = $(this).data("itemid");
+
+            $.ajax(`/api/items/${itemId}`, {
+                type: "DELETE"
+            }).then( () => location.reload() );
+        });
+    </script>
+</body>
+</html>
