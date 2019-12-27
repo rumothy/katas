@@ -35,14 +35,14 @@ function createItemsHtml(){
 }
 
 function createItemHtml(item){
-    let p = tagBuilder.create('p');
-    let li = tagBuilder.create('li').text(`${item.id}. ${item.name}`);
+    let li = tagBuilder.create('li');
+    let p = tagBuilder.create('p').text(`${item.id}. ${item.name}`);
     let button = tagBuilder.create('button')
         .attr({"data-itemid": item.id.toString()})
         .addClass("delete-item")
         .text("delete?");
-    p.appendHtml(li);
     p.appendHtml(button);
+    li.appendHtml(p);
     return p.toString();
 }
 
