@@ -43,7 +43,7 @@ function createItemHtml(item){
         .text("delete?");
     p.appendHtml(button);
     li.appendHtml(p);
-    return p.toString();
+    return li.toString();
 }
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
