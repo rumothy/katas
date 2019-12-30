@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+    <h1>Mysql PUT</h1>
+    <ul>{{{_movies}}}</ul>
+    <input type="text" id="tbMovieId" placeholder="movie id">
+    <input type="text" id="tbRating" placeholder="rating">
+    <button id="btnUpdate">Change?</button>
+    <script>
+        $("#btnUpdate").on('click', function(event){
+            event.preventDefault();
+            let movieId = $("#tbMovieId").val().trim();
+
+            let updatedMovie = {
+                rating: $("#tbRating").val().trim()
+            };
+            $.ajax(`/api/movies/${movieId}`, {
+                type: "PUT",
+                data: updatedMovie
+            }).then( () => {
+                $("#tbMovieId").val('');
+                $("#tbRating").val('');
+                location.reload();
+            });
+        });
+    </script>
+</body>
+</html>
