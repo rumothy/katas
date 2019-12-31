@@ -7,11 +7,11 @@ const fs = require('fs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-let movies = [{id: 1, title: 'hi', rating: 'T'}];
-
 // ?2
 
 // ?3
+
+// ?4
 
 app.listen(PORT, () => console.log(`Server listening on PORT: ${PORT}`));
 
@@ -24,7 +24,7 @@ app.get('/', function(req, res){
 
 });
 
-// ?4
+// ?5
 
 function copyMoviesFromDB(){
     connection.query('SELECT * FROM movies', function(err, result){
@@ -40,7 +40,7 @@ function displayIndexHtml(callback){
     });
 }
 
-// ?5
+// ?6
 
 function createMoviesHtml(){
     let moviesHtmlArry = movies.map(movie => `<li>${movie.id}. ${movie.title} | rating: ${movie.rating}</li>`);

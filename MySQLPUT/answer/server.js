@@ -8,9 +8,10 @@ const mysql = require('mysql');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+// ?2
 let movies = [{id: 1, title: 'hi', rating: 'T'}];
 
-// ?2
+// ?3
 const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -19,7 +20,7 @@ const connection = mysql.createConnection({
     database: 'moviesDB'
 });
 
-// ?3
+// ?4
 connection.connect(function(err){
     if (err) throw err;
     console.log(`Connected as id ${connection.threadId}`);
@@ -36,7 +37,7 @@ app.get('/', function(req, res){
 
 });
 
-// ?4
+// ?5
 app.put('/api/movies/:id', function(req, res){
     let movie = movies.find(x => x.id === parseInt(req.params.id));
     if (movie === undefined) throw `error: movie id ${parseInt(req.params.id)} undefined.`;
@@ -65,7 +66,7 @@ function displayIndexHtml(callback){
     });
 }
 
-// ?5
+// 6 ?
 function updateMovieInDB(movie){
     connection.query('UPDATE movies SET rating = ? WHERE id = ?', [movie.rating, movie.id], function(err, result){
         if (err) throw err;
