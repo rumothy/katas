@@ -16,3 +16,6 @@
 ## Node Modules  
 - express
 - tag-builder
+
+
+Repeat the exercise until you don't need to look at the answers.    

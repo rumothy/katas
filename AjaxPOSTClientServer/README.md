@@ -12,5 +12,6 @@
 8. Delete everything you just did:<br /> 
 &nbsp;&nbsp; term> rm -r \<kataName\>.
 9. Repeat until you can do it from memory.
+
 ## Node Modules  
 - express
