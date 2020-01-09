@@ -7,5 +7,6 @@
 5. Test & troubleshoot.
 6. Repeat until you can do it from memory.
 
-Node Modules
-express, tag-builder
+Node Modules  
+- express
+- tag-builder
