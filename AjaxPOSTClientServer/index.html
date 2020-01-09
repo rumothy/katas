@@ -5,22 +5,21 @@
 </head>
 <body>
     <h1>Items</h1>
-    <ul>{{{items}}}</ul>
-    <form id="add-item" type="submit">
-        <textarea name="userInput" type="text" placeholder="name"></textarea>
-        <button type="submit">Add?</button>
-    </form>
+    <ul>{{{_items}}}</ul>
+    <input id="tbItemName" type="text" placeholder="item name"></input>
+    <button id="btnAdd">Add?</button>
     <script>
-        $("#add-item").on("submit", function(event){
+        $("#btnAdd").click(function(event){
             event.preventDefault();
-            let addedItem = {
-                userInput: $("#add-item [name=userInput]").val().trim()
-            };
+            let addedItem = { itemName: $("#tbItemName").val().trim() };
 
             $.ajax("/api/items", {
                 type: "POST",
                 data: addedItem
-            }).then( () => location.reload() );
+            }).then( () => {
+                $("#tbItemName").val('');
+                location.reload(); 
+            });
         });
     </script>
 </body>
