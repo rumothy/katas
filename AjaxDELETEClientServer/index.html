@@ -5,12 +5,12 @@
 </head>
 <body>
     <h1>Items</h1>
-    <ul>{{{items}}}</ul>
+    <ul>{{{_items}}}</ul>
     <script>
-        $(".delete-item").on("click", function(event){
+        $(".btnDelete").on("click", function(event){
             event.preventDefault();
             let itemId = $(this).data("itemid");
-
+            
             $.ajax(`/api/items/${itemId}`, {
                 type: "DELETE"
             }).then( () => location.reload() );

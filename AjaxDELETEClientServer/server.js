@@ -8,9 +8,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 let items = [
-    { id: 1, name: "aaa"},
-    { id: 2, name: "bbb"},
-    { id: 3, name: "ccc"},
+    { id: 1, name: "please!"},
+    { id: 2, name: "nooo!"},
+    { id: 3, name: "ahhhhh!"},
 ];
 
 app.get("/", function(req, res){
@@ -25,7 +25,7 @@ app.delete("/api/items/:id", function(req, res){
 function sendIndexHtml(res){
     fs.readFile(`${__dirname}/index.html`, "utf-8", function(err, data){
         if (err) throw err;
-        res.end(data.replace("{{{items}}}", createItemsHtml()));
+        res.end(data.replace("{{{_items}}}", createItemsHtml()));
     });
 }
 
@@ -39,7 +39,7 @@ function createItemHtml(item){
     let p = tagBuilder.create('p').text(`${item.id}. ${item.name}`);
     let button = tagBuilder.create('button')
         .attr({"data-itemid": item.id.toString()})
-        .addClass("delete-item")
+        .addClass("btnDelete")
         .text("delete?");
     p.appendHtml(button);
     li.appendHtml(p);
