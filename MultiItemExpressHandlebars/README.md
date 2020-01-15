@@ -7,7 +7,7 @@
 &nbsp;&nbsp; term> npm i \<package\> 
 5. Start the server:<br /> 
 &nbsp;&nbsp; term> node server.js
-6. Go to the address localhost:8080 in a browser window. 
+6. Go to the address localhost:8080/items in a browser window. 
 7. Test & troubleshoot.
 8. Delete everything you just did:<br /> 
 &nbsp;&nbsp; term> rm -r \<kataName\>.
@@ -15,3 +15,4 @@
 
 ## Node Modules  
 - express
+- express-handlebars
